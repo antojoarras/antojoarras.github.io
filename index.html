@@ -9,21 +9,20 @@
     </title>
   </head>
   <body>
+    <h1 id="welcomeHeader">Welcome to Eli's web</h1>
+    <p id="helpLink">Click <a href="help.html">here</a> to go to <b>help</b> page.</p>
+    <br>
+    <p id="subscribeLink">Also make sure to subscribe: <a href="https://www.youtube.com/@elithelegobrick/videos">click me</a></p>
+    
     <script>
-      var num = Math.floor(Math.random()*100)+1
+      var num = Math.floor(Math.random()*100)+1;
       if (num === 1) {
         window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
       } else {
-        document.write('<h1>
-      Welcome to Eli's web
-    </h1>
-    <p1>
-      Click <a href="help.html">here</a> to go to <b>help</b> page.
-    </p1>
-    <br>
-    <p1>
-      Also make sure to subscribe: <a href="https://www.youtube.com/@elithelegobrick/videos">click me</a>
-    </p1>')
+        document.getElementById('welcomeHeader').innerText = "Welcome to Eli's web";
+        document.getElementById('helpLink').innerHTML = 'Click <a href="help.html">here</a> to go to <b>help</b> page.';
+        document.getElementById('subscribeLink').innerHTML = 'Also make sure to subscribe: <a href="https://www.youtube.com/@elithelegobrick/videos">click me</a>';
+      }
     </script>
   </body>
 </html>
