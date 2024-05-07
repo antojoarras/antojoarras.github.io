@@ -18,12 +18,9 @@
     </style>
   </head>
 <body>
-  <div id="content">
-    <h1 id="welcomeHeader">Welcome to Eli's web</h1>
-    <p id="helpLink">Click <a href="help.html">here</a> to go to <b>help</b> page.</p>
-    <p id="subscribeLink">Also make sure to subscribe: <a href="https://www.youtube.com/@elithelegobrick/videos">click me</a></p>
-  </div>
-
+  <h1 id="welcomeHeader">Welcome to Eli's web</h1>
+  <p id="helpLink">Click <a href="help.html">here</a> to go to <b>help</b> page.</p>
+  <p id="subscribeLink">Also make sure to subscribe: <a href="https://www.youtube.com/@elithelegobrick/videos">click me</a></p>
   <script>
     var num = Math.floor(Math.random()*100)+1;
     if (num === 1) {
@@ -31,19 +28,6 @@
     } else {
       document.getElementById('content').style.display = 'block'; // Mostrar el contenido si no se redirige
     }
-
-    // Función que se ejecuta cuando el usuario deja la página
-    function handleVisibilityChange() {
-      if (document.visibilityState === 'hidden') {
-        console.log('El usuario ha dejado la página.');
-        document.body.style.backgroundColor = 'black'; // Establecer el fondo como negro cuando el usuario se va
-      } else {
-        console.log('El usuario ha vuelto a la página.');
-        document.body.style.backgroundColor = 'white'; // Cambiar el fondo a blanco cuando el usuario regresa
-      }
-    }
-    // Agregar un listener para detectar cambios en la visibilidad de la página
-    document.addEventListener('visibilitychange', handleVisibilityChange);
   </script>
 </body>
 </html>
