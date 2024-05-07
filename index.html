@@ -8,21 +8,43 @@
       Does any reads me?
     </title>
   </head>
-  <body>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Detectar cuando el usuario deja y regresa a la página</title>
+</head>
+<body>
+  <div id="content">
     <h1 id="welcomeHeader">Welcome to Eli's web</h1>
     <p id="helpLink">Click <a href="help.html">here</a> to go to <b>help</b> page.</p>
-    <br>
     <p id="subscribeLink">Also make sure to subscribe: <a href="https://www.youtube.com/@elithelegobrick/videos">click me</a></p>
-    
-    <script>
-      var num = Math.floor(Math.random()*100)+1;
-      if (num === 1) {
-        window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+  </div>
+  <div id="placeholder" style="display: none;">...</div>
+
+  <script>
+    var num = Math.floor(Math.random()*100)+1;
+    if (num === 1) {
+      window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+    } else {
+      document.getElementById('welcomeHeader').innerText = "Welcome to Eli's web";
+      document.getElementById('helpLink').innerHTML = 'Click <a href="help.html">here</a> to go to <b>help</b> page.';
+      document.getElementById('subscribeLink').innerHTML = 'Also make sure to subscribe: <a href="https://www.youtube.com/@elithelegobrick/videos">click me</a>';
+    }
+
+    // Función que se ejecuta cuando el usuario deja la página
+    function handleVisibilityChange() {
+      if (document.visibilityState === 'hidden') {
+        console.log('El usuario ha dejado la página.');
+        document.getElementById('content').style.display = 'none';
+        document.getElementById('placeholder').style.display = 'block';
       } else {
-        document.getElementById('welcomeHeader').innerText = "Welcome to Eli's web";
-        document.getElementById('helpLink').innerHTML = 'Click <a href="help.html">here</a> to go to <b>help</b> page.';
-        document.getElementById('subscribeLink').innerHTML = 'Also make sure to subscribe: <a href="https://www.youtube.com/@elithelegobrick/videos">click me</a>';
+        console.log('El usuario ha vuelto a la página.');
+        document.getElementById('content').style.display = 'block';
+        document.getElementById('placeholder').style.display = 'none';
       }
-    </script>
-  </body>
+    }
+    // Agregar un listener para detectar cambios en la visibilidad de la página
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+  </script>
+</body>
 </html>
